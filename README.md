@@ -6,7 +6,6 @@
 
 <p align="center">
   <a href="https://prummn.github.io/Voices-in-the-Wild-Bench/">Leaderboard</a> |
-  <a href="https://github.com/prummn/Voices-in-the-Wild-Bench">GitHub</a> |
   <a href="https://arxiv.org/abs/YOUR_PAPER_ID">Paper</a> |
   <a href="https://huggingface.co/datasets/prummn/Voices-in-the-Wild-Bench">Dataset</a> |
   <a href="https://github.com/prummn/Voices-in-the-Wild-Bench/issues">Submit Results</a>
