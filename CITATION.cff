@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use Voices-in-the-Wild-Bench, please cite the associated paper."
+title: "Voices-in-the-Wild-Bench: Benchmarking Robust Speech Understanding in Real-World Voice Interaction"
+authors:
+  - family-names: "Anonymous"
+    given-names: "Authors"
+year: 2026
+repository-code: "https://github.com/YOUR_ORG/Voices-in-the-Wild-Bench"
+url: "https://YOUR_ORG.github.io/Voices-in-the-Wild-Bench/"
+license: MIT

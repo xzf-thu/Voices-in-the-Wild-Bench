@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voices-in-the-Wild-Bench Leaderboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18212f;
+      --muted: #5d6978;
+      --line: #d9e0e8;
+      --panel: #f6f8fb;
+      --accent: #126a8a;
+      --accent-2: #8b3f2f;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f9fbfd 0%, #ffffff 100%);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 56px 0 42px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0 0 24px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 650;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 12px;
+      background: #fff;
+    }
+
+    main {
+      padding: 34px 0 64px;
+    }
+
+    section {
+      margin: 0 0 36px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.55rem;
+      letter-spacing: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0 0;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--panel);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: table;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--panel);
+      font-size: 0.92rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .notice {
+      border-left: 4px solid var(--accent-2);
+      background: #fff8f5;
+      padding: 14px 16px;
+      color: #47302a;
+      border-radius: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <h1>Voices-in-the-Wild-Bench</h1>
+      <p class="subtitle">A bilingual benchmark for robust speech understanding under realistic acoustic conditions, including noise, far-field capture, obstruction, recording artifacts, echo, dropout, and mixed perturbations.</p>
+      <nav aria-label="Project links">
+        <a href="https://github.com/YOUR_ORG/Voices-in-the-Wild-Bench">GitHub</a>
+        <a href="https://arxiv.org/abs/YOUR_PAPER_ID">Paper</a>
+        <a href="https://huggingface.co/datasets/YOUR_ORG/Voices-in-the-Wild-Bench">Dataset</a>
+        <a href="https://github.com/YOUR_ORG/Voices-in-the-Wild-Bench/issues">Submit Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Dataset Summary</h2>
+      <p>Voices-in-the-Wild-Bench contains 5,000 speech examples: 3,500 synthetic samples, 1,500 real-recorded samples from 16 speakers, and an even Chinese-English language split.</p>
+      <div class="stats" aria-label="Dataset statistics">
+        <div class="stat"><strong>5,000</strong><span>Total samples</span></div>
+        <div class="stat"><strong>3,500</strong><span>Synthetic speech</span></div>
+        <div class="stat"><strong>1,500</strong><span>Real-recorded speech</span></div>
+        <div class="stat"><strong>8</strong><span>Acoustic categories</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Leaderboard</h2>
+      <div class="notice">The official leaderboard is being prepared. Submitted results will be listed here after the public evaluation protocol is finalized.</div>
+      <table aria-label="Leaderboard table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Model</th>
+            <th>Organization</th>
+            <th>Overall</th>
+            <th>Chinese</th>
+            <th>English</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>-</td>
+            <td>Coming soon</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Categories</h2>
+      <table aria-label="Acoustic categories">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Samples</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>noise</code></td><td>500</td><td>Background noise and additive acoustic interference.</td></tr>
+          <tr><td><code>far_field</code></td><td>500</td><td>Distant microphone and reverberant capture conditions.</td></tr>
+          <tr><td><code>obstructed</code></td><td>500</td><td>Speech affected by physical or spectral obstruction.</td></tr>
+          <tr><td><code>distortion</code></td><td>500</td><td>Clipping, nonlinear distortion, and signal degradation.</td></tr>
+          <tr><td><code>recording</code></td><td>500</td><td>Recording coloration, channel effects, and related artifacts.</td></tr>
+          <tr><td><code>strong_echo</code></td><td>500</td><td>Echo-heavy and reverberant speech.</td></tr>
+          <tr><td><code>dropout</code></td><td>500</td><td>Missing, repeated, or discontinuous speech segments.</td></tr>
+          <tr><td><code>mixed</code></td><td>1,500</td><td>Combinations of multiple acoustic conditions.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Voices-in-the-Wild-Bench. Links and leaderboard entries will be updated for the public release.</div>
+  </footer>
+</body>
+</html>

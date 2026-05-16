@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Data and model artifacts
+*.wav
+*.mp3
+*.flac
+*.tar
+*.tar.gz
+*.zip
+*.jsonl
+cache/
+.cache/
+checkpoints/
+models/
+
+# Results can be large; keep only documentation by default.
+results/*.jsonl
+results/*.csv
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
