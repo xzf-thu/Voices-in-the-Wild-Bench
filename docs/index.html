@@ -13,6 +13,7 @@
       --panel: #f6f8fb;
       --accent: #126a8a;
       --accent-2: #8b3f2f;
+      --accent-3: #2f6b45;
       --bg: #ffffff;
     }
 
@@ -54,6 +55,23 @@
       color: var(--muted);
       font-size: 1.1rem;
       margin: 0 0 24px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 22px;
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: #fff;
+      color: #314151;
+      font-size: 0.9rem;
+      font-weight: 650;
     }
 
     nav {
@@ -176,6 +194,36 @@
       border-radius: 4px;
     }
 
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .example {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .example strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .example p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    audio {
+      width: 100%;
+      height: 34px;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       color: var(--muted);
@@ -186,6 +234,10 @@
     @media (max-width: 760px) {
       .stats {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
       }
 
       table {
@@ -200,6 +252,12 @@
     <div class="wrap hero">
       <h1>Voices-in-the-Wild-Bench</h1>
       <p class="subtitle">A bilingual benchmark for robust speech understanding under realistic acoustic conditions, including noise, far-field capture, obstruction, recording artifacts, echo, dropout, and mixed perturbations.</p>
+      <div class="badges" aria-label="Benchmark tags">
+        <span class="badge">Robust ASR</span>
+        <span class="badge">ZH / EN</span>
+        <span class="badge">5,000 samples</span>
+        <span class="badge">CER + WER</span>
+      </div>
       <nav aria-label="Project links">
         <a href="https://github.com/xzf-thu/Voices-in-the-Wild-Bench">GitHub</a>
         <a href="https://arxiv.org/abs/YOUR_PAPER_ID">Paper</a>
@@ -270,7 +328,43 @@
     <section>
       <h2>Reproduction</h2>
       <p>Use <code>scripts/run_inference.py</code> to generate predictions and <code>scripts/evaluate_predictions.py</code> to compute Chinese CER and English WER. Mega-ASR is the public name for the merged_v2 model used in the paper.</p>
-      <div class="notice">The full benchmark should be downloaded from the dataset hosting page. The repository includes <code>data/examples.jsonl</code> only as a lightweight format check.</div>
+      <div class="notice">The full benchmark should be downloaded from the dataset hosting page. The repository includes <code>data/examples.jsonl</code> and eight local audio clips for lightweight smoke tests.</div>
+    </section>
+
+    <section>
+      <h2>Example Audio</h2>
+      <div class="cards">
+        <div class="example"><strong>Noise</strong><audio controls src="../data/examples/audio/noise.wav"></audio><p>Background noise and additive interference.</p></div>
+        <div class="example"><strong>Far-field</strong><audio controls src="../data/examples/audio/far_field.wav"></audio><p>Distant microphone capture.</p></div>
+        <div class="example"><strong>Obstructed</strong><audio controls src="../data/examples/audio/obstructed.wav"></audio><p>Physical or spectral obstruction.</p></div>
+        <div class="example"><strong>Distortion</strong><audio controls src="../data/examples/audio/distortion.wav"></audio><p>Clipping and signal degradation.</p></div>
+        <div class="example"><strong>Recording</strong><audio controls src="../data/examples/audio/recording.wav"></audio><p>Channel and device artifacts.</p></div>
+        <div class="example"><strong>Echo</strong><audio controls src="../data/examples/audio/echo.wav"></audio><p>Echo-heavy reverberant speech.</p></div>
+        <div class="example"><strong>Dropout</strong><audio controls src="../data/examples/audio/dropout.wav"></audio><p>Missing or discontinuous speech.</p></div>
+        <div class="example"><strong>Mixed</strong><audio controls src="../data/examples/audio/mixed.wav"></audio><p>Combined acoustic perturbations.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Model Wrappers</h2>
+      <table aria-label="Supported model wrappers">
+        <thead>
+          <tr>
+            <th>CLI name</th>
+            <th>Backend</th>
+            <th>Checkpoint</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>whisper-large-v3</code></td><td>Transformers</td><td><code>openai/whisper-large-v3</code></td></tr>
+          <tr><td><code>canary-1b-v2</code></td><td>NVIDIA NeMo</td><td><code>nvidia/canary-1b-v2</code></td></tr>
+          <tr><td><code>parakeet-tdt-0.6b-v3</code></td><td>NVIDIA NeMo</td><td><code>nvidia/parakeet-tdt-0.6b-v3</code></td></tr>
+          <tr><td><code>qwen3-asr-1.7b</code></td><td>Qwen ASR runtime</td><td><code>Qwen/Qwen3-ASR-1.7B</code></td></tr>
+          <tr><td><code>kimi-audio</code></td><td>Kimi-Audio runtime</td><td><code>--model-path</code> or <code>KIMI_AUDIO_MODEL_PATH</code></td></tr>
+          <tr><td><code>step-audio-2-mini</code></td><td>Step-Audio2 runtime</td><td><code>--model-path</code> or <code>STEP_AUDIO2_MODEL_PATH</code></td></tr>
+          <tr><td><code>mega-asr</code></td><td>Qwen ASR runtime</td><td><code>--model-path /path/to/Mega-ASR</code></td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section>

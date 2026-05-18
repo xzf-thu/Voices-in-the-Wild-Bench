@@ -18,6 +18,9 @@ env/
 *.zip
 *.jsonl
 !data/examples.jsonl
+!data/examples/
+!data/examples/audio/
+!data/examples/audio/*.wav
 cache/
 .cache/
 checkpoints/

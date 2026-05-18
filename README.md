@@ -5,9 +5,17 @@
 </p>
 
 <p align="center">
+  <img alt="Task" src="https://img.shields.io/badge/task-robust%20ASR-126a8a">
+  <img alt="Languages" src="https://img.shields.io/badge/languages-ZH%20%7C%20EN-8b3f2f">
+  <img alt="Samples" src="https://img.shields.io/badge/samples-5,000-2f6b45">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-5d6978">
+</p>
+
+<p align="center">
   <a href="https://xzf-thu.github.io/Voices-in-the-Wild-Bench/">Leaderboard</a> |
   <a href="https://arxiv.org/abs/YOUR_PAPER_ID">Paper</a> |
   <a href="https://huggingface.co/datasets/xzf-thu/Voices-in-the-Wild-Bench">Dataset</a> |
+  <a href="#running-models">Model Wrappers</a> |
   <a href="https://github.com/xzf-thu/Voices-in-the-Wild-Bench/issues">Submit Results</a>
 </p>
 
@@ -23,6 +31,7 @@
 - [Overview](#overview)
 - [Dataset](#dataset)
 - [Data Format](#data-format)
+- [Example Audio](#example-audio)
 - [Evaluation](#evaluation)
 - [Leaderboard](#leaderboard)
 - [Submission](#submission)
@@ -93,6 +102,21 @@ Important fields:
 - `subset`: subset label encoding source type, language, and acoustic condition.
 - `prediction`: optional field for model outputs.
 
+## Example Audio
+
+The repository includes eight lightweight example clips, one for each public acoustic category. They are useful for smoke-testing loaders, wrappers, and leaderboard formatting before downloading the full benchmark.
+
+| Category | Audio | Reference |
+|---|---|---|
+| `noise` | [noise.wav](data/examples/audio/noise.wav) | I usually take the quieter road home because the main street gets crowded after work. |
+| `far_field` | [far_field.wav](data/examples/audio/far_field.wav) | Please remind me to print the forms before we leave for the appointment tomorrow. |
+| `obstructed` | [obstructed.wav](data/examples/audio/obstructed.wav) | I forgot my charger at home, so I need to find an outlet before the meeting starts. |
+| `distortion` | [distortion.wav](data/examples/audio/distortion.wav) | The new coffee machine is simple, but everyone keeps forgetting where the filters are stored. |
+| `recording` | [recording.wav](data/examples/audio/recording.wav) | Can you check whether the train still stops at the downtown station after eight tonight? |
+| `echo` | [echo.wav](data/examples/audio/echo.wav) | I need to return these shoes because the size feels fine standing up but terrible while walking. |
+| `dropout` | [dropout.wav](data/examples/audio/dropout.wav) | My aunt is learning video calls, and she gets excited whenever the picture actually works. |
+| `mixed` | [mixed.wav](data/examples/audio/mixed.wav) | My sister is bringing dinner over later, so we do not need to cook tonight. |
+
 ## Evaluation
 
 Voices-in-the-Wild-Bench evaluates Chinese samples with CER and English samples with WER. Prediction files should preserve the original sample metadata and fill the `prediction` field with the model response.
@@ -113,7 +137,7 @@ The repository includes lightweight wrappers for selected reproducible systems. 
 python scripts/run_inference.py \
   --model whisper-large-v3 \
   --data-file data/examples.jsonl \
-  --audio-root /path/to/voices_wild_bench \
+  --audio-root data \
   --output-file outputs/whisper_large_v3.jsonl
 ```
 
@@ -124,11 +148,23 @@ python scripts/run_inference.py \
   --model mega-asr \
   --model-path /path/to/Mega-ASR \
   --data-file data/examples.jsonl \
-  --audio-root /path/to/voices_wild_bench \
+  --audio-root data \
   --output-file outputs/mega_asr.jsonl
 ```
 
-`data/examples.jsonl` contains a few lightweight records for checking the expected format. The full benchmark data should be downloaded from the dataset hosting page.
+Supported public wrappers:
+
+| CLI name | Backend | Checkpoint default |
+|---|---|---|
+| `whisper-large-v3` | Transformers pipeline | `openai/whisper-large-v3` |
+| `canary-1b-v2` | NVIDIA NeMo | `nvidia/canary-1b-v2` |
+| `parakeet-tdt-0.6b-v3` | NVIDIA NeMo | `nvidia/parakeet-tdt-0.6b-v3` |
+| `qwen3-asr-1.7b` | Qwen ASR runtime | `Qwen/Qwen3-ASR-1.7B` |
+| `kimi-audio` | Kimi-Audio runtime | pass `--model-path` or set `KIMI_AUDIO_MODEL_PATH` |
+| `step-audio-2-mini` | Step-Audio2 runtime | pass `--model-path` or set `STEP_AUDIO2_MODEL_PATH` |
+| `mega-asr` | Qwen ASR runtime | pass `--model-path /path/to/Mega-ASR` |
+
+`data/examples.jsonl` contains local audio records for checking the expected format. The full benchmark data should be downloaded from the dataset hosting page.
 
 ## Leaderboard
 
