@@ -25,6 +25,24 @@ def test_examples_cover_all_public_categories_and_audio_files_exist():
         assert (root / "data" / record["audio_path"]).exists()
 
 
+def test_docs_audio_previews_are_inside_pages_root():
+    root = Path(__file__).resolve().parents[1]
+    docs_html = (root / "docs" / "index.html").read_text(encoding="utf-8")
+
+    for category in [
+        "noise",
+        "far_field",
+        "obstructed",
+        "distortion",
+        "recording",
+        "echo",
+        "dropout",
+        "mixed",
+    ]:
+        assert f'src="assets/audio/{category}.wav"' in docs_html
+        assert (root / "docs" / "assets" / "audio" / f"{category}.wav").exists()
+
+
 def test_public_model_registry_includes_reproducible_wrappers():
     assert {
         "whisper-large-v3",

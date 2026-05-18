@@ -21,6 +21,8 @@ env/
 !data/examples/
 !data/examples/audio/
 !data/examples/audio/*.wav
+!docs/assets/audio/
+!docs/assets/audio/*.wav
 cache/
 .cache/
 checkpoints/
