@@ -121,6 +121,19 @@
       background: #fff;
     }
 
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .table-scroll table {
+      min-width: 1320px;
+      border: 0;
+      border-radius: 0;
+    }
+
     th, td {
       padding: 12px 14px;
       border-bottom: 1px solid var(--line);
@@ -131,6 +144,24 @@
     th {
       background: var(--panel);
       font-size: 0.92rem;
+    }
+
+    .num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .group-row td {
+      background: #eaf4f7;
+      color: #244854;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .best {
+      font-weight: 800;
+      color: var(--accent);
     }
 
     tr:last-child td {
@@ -192,31 +223,48 @@
 
     <section>
       <h2>Leaderboard</h2>
-      <div class="notice">The official leaderboard is being prepared. Submitted results will be listed here after the public evaluation protocol is finalized.</div>
-      <table aria-label="Leaderboard table">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Model</th>
-            <th>Organization</th>
-            <th>Overall</th>
-            <th>Chinese</th>
-            <th>English</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>-</td>
-            <td>Coming soon</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
-        </tbody>
-      </table>
+      <p>Breakdown results by acoustic scenario. Scores are error rates; lower is better. Real. and Sim. denote real-recorded and synthetic speech, respectively.</p>
+      <div class="table-scroll">
+        <table aria-label="Leaderboard table">
+          <thead>
+            <tr>
+              <th rowspan="2">Model</th>
+              <th colspan="2">Noise</th>
+              <th colspan="2">Far.</th>
+              <th colspan="2">Obst.</th>
+              <th colspan="2">Echo.</th>
+              <th colspan="2">Record.</th>
+              <th colspan="2">Elc.Dis.</th>
+              <th colspan="2">Trans.Drop.</th>
+              <th colspan="2">Mixed</th>
+            </tr>
+            <tr>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+              <th>Real.</th><th>Sim.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><td colspan="17">Closed-source models</td></tr>
+            <tr><td>Gemini3-Flash</td><td class="num">7.63</td><td class="num">10.61</td><td class="num">5.14</td><td class="num">1.90</td><td class="num">3.73</td><td class="num">2.65</td><td class="num">8.75</td><td class="num">14.86</td><td class="num">8.38</td><td class="num">19.85</td><td class="num">3.15</td><td class="num">7.56</td><td class="num">5.47</td><td class="num">7.65</td><td class="num">7.99</td><td class="num">9.62</td></tr>
+            <tr><td>Seed-ASR</td><td class="num">8.21</td><td class="num">8.11</td><td class="num">3.06</td><td class="num">3.19</td><td class="num">3.10</td><td class="num">2.76</td><td class="num">16.55</td><td class="num">18.21</td><td class="num">18.48</td><td class="num">23.33</td><td class="num">3.89</td><td class="num">5.71</td><td class="num">7.97</td><td class="num">7.46</td><td class="num">6.88</td><td class="num">9.29</td></tr>
+            <tr><td>GPT-4o-trans.</td><td class="num">13.19</td><td class="num">45.78</td><td class="num best">1.87</td><td class="num">2.39</td><td class="num best">1.57</td><td class="num">2.77</td><td class="num">15.62</td><td class="num">28.76</td><td class="num">13.37</td><td class="num">22.60</td><td class="num">3.70</td><td class="num">8.43</td><td class="num">8.76</td><td class="num">7.71</td><td class="num">5.62</td><td class="num">11.00</td></tr>
+            <tr class="group-row"><td colspan="17">Open-source models</td></tr>
+            <tr><td>Whisper-L-v3</td><td class="num">16.57</td><td class="num">18.19</td><td class="num">3.38</td><td class="num">6.85</td><td class="num">3.06</td><td class="num">6.01</td><td class="num">25.34</td><td class="num">39.87</td><td class="num">18.33</td><td class="num">31.81</td><td class="num">3.74</td><td class="num">8.77</td><td class="num">7.04</td><td class="num">8.05</td><td class="num">8.91</td><td class="num">14.79</td></tr>
+            <tr><td>Qwen2.5-Omni</td><td class="num">11.92</td><td class="num">17.88</td><td class="num">2.35</td><td class="num">2.44</td><td class="num">2.40</td><td class="num">2.08</td><td class="num">20.01</td><td class="num">32.64</td><td class="num">13.71</td><td class="num">30.09</td><td class="num">2.46</td><td class="num">5.96</td><td class="num">6.34</td><td class="num">5.88</td><td class="num">6.40</td><td class="num">10.29</td></tr>
+            <tr><td>Kimi-Audio</td><td class="num">35.10</td><td class="num">14.59</td><td class="num">2.71</td><td class="num">1.92</td><td class="num">2.49</td><td class="num">1.64</td><td class="num">24.00</td><td class="num">26.58</td><td class="num">8.73</td><td class="num">18.09</td><td class="num">1.83</td><td class="num best">2.78</td><td class="num">4.54</td><td class="num">6.33</td><td class="num">4.44</td><td class="num">6.19</td></tr>
+            <tr><td>Qwen3-ASR</td><td class="num">7.51</td><td class="num">9.52</td><td class="num">2.23</td><td class="num best">1.54</td><td class="num">1.73</td><td class="num">1.27</td><td class="num">10.40</td><td class="num">14.61</td><td class="num">9.57</td><td class="num">19.42</td><td class="num best">1.54</td><td class="num">3.41</td><td class="num">4.16</td><td class="num">4.19</td><td class="num">3.30</td><td class="num">5.39</td></tr>
+            <tr class="group-row"><td colspan="17">Our model</td></tr>
+            <tr><td>Ours</td><td class="num">6.33</td><td class="num">8.26</td><td class="num">2.35</td><td class="num">1.61</td><td class="num">1.62</td><td class="num best">1.23</td><td class="num best">8.62</td><td class="num">12.59</td><td class="num">7.65</td><td class="num">14.21</td><td class="num">1.71</td><td class="num">3.72</td><td class="num best">2.59</td><td class="num best">2.62</td><td class="num">2.73</td><td class="num">4.57</td></tr>
+            <tr><td>Ours w/ router</td><td class="num best">6.12</td><td class="num best">8.09</td><td class="num">2.33</td><td class="num">1.69</td><td class="num">1.80</td><td class="num">1.41</td><td class="num">8.66</td><td class="num best">12.22</td><td class="num best">6.91</td><td class="num best">13.23</td><td class="num">1.60</td><td class="num">3.35</td><td class="num">2.72</td><td class="num">2.88</td><td class="num best">2.63</td><td class="num best">4.53</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section>
