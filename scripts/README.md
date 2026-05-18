@@ -1,12 +1,23 @@
 # Scripts
 
-Evaluation and leaderboard maintenance scripts will be added here after the public evaluation protocol is finalized.
+This directory contains the public reproduction entry points.
 
-Planned commands:
+Run inference:
 
 ```shell
-python scripts/evaluate.py --prediction_file path/to/predictions.jsonl
-python scripts/summarize_results.py --result_file path/to/results.json
+python scripts/run_inference.py \
+  --model whisper-large-v3 \
+  --data-file data/examples.jsonl \
+  --audio-root /path/to/voices_wild_bench \
+  --output-file outputs/predictions.jsonl
 ```
 
-Until the scripts are released, please use the issue tracker to submit results and include enough detail for reproducibility.
+Evaluate predictions:
+
+```shell
+python scripts/evaluate_predictions.py \
+  --prediction-file outputs/predictions.jsonl \
+  --output-file outputs/results.json
+```
+
+Chinese samples are scored with CER; English samples are scored with WER.

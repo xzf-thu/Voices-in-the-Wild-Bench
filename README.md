@@ -15,7 +15,8 @@
 
 ## News
 
-* **`2026.05.16`** Initial repository skeleton released. Dataset card, leaderboard page, and evaluation code will be updated as the public release is finalized.
+* **`2026.05.18`** Added reproducible evaluation utilities, example records, and initial model wrappers for Whisper-Large-v3 and Mega-ASR.
+* **`2026.05.16`** Initial repository skeleton released.
 
 ## Table of Contents
 
@@ -101,13 +102,40 @@ Important fields:
 
 ## Evaluation
 
-Evaluation scripts are under preparation and will be released in a future update. The intended workflow is:
+Voices-in-the-Wild-Bench evaluates Chinese samples with CER and English samples with WER. Prediction files should preserve the original sample metadata and fill the `prediction` field with the model response.
 
 ```shell
-python scripts/evaluate.py --prediction_file path/to/predictions.jsonl
+python scripts/evaluate_predictions.py \
+  --prediction-file path/to/predictions.jsonl \
+  --output-file results/model_results.json
 ```
 
-Prediction files should preserve the original sample metadata and fill the `prediction` field with the model response.
+The script reports overall error rate, language-wise scores, and the real/synthetic breakdown for each acoustic category.
+
+### Running Models
+
+The repository includes lightweight wrappers for selected reproducible systems. Full model checkpoints should be downloaded separately and passed with `--model-path` when required.
+
+```shell
+python scripts/run_inference.py \
+  --model whisper-large-v3 \
+  --data-file data/examples.jsonl \
+  --audio-root /path/to/voices_wild_bench \
+  --output-file outputs/whisper_large_v3.jsonl
+```
+
+Mega-ASR is the public name for our merged_v2 model:
+
+```shell
+python scripts/run_inference.py \
+  --model mega-asr \
+  --model-path /path/to/Mega-ASR \
+  --data-file data/examples.jsonl \
+  --audio-root /path/to/voices_wild_bench \
+  --output-file outputs/mega_asr.jsonl
+```
+
+`data/examples.jsonl` contains a few lightweight records for checking the expected format. The full benchmark data should be downloaded from the dataset hosting page.
 
 ## Leaderboard
 
@@ -131,8 +159,8 @@ The table below reports breakdown results by acoustic scenario. Scores are error
 | Kimi-Audio | 35.10 | 14.59 | 2.71 | 1.92 | 2.49 | 1.64 | 24.00 | 26.58 | 8.73 | 18.09 | 1.83 | **2.78** | 4.54 | 6.33 | 4.44 | 6.19 |
 | Qwen3-ASR | 7.51 | 9.52 | 2.23 | **1.54** | 1.73 | 1.27 | 10.40 | 14.61 | 9.57 | 19.42 | **1.54** | 3.41 | 4.16 | 4.19 | 3.30 | 5.39 |
 | **Our model** |||||||||||||||||
-| Ours | 6.33 | 8.26 | 2.35 | 1.61 | 1.62 | **1.23** | **8.62** | 12.59 | 7.65 | 14.21 | 1.71 | 3.72 | **2.59** | **2.62** | 2.73 | 4.57 |
-| Ours w/ router | **6.12** | **8.09** | 2.33 | 1.69 | 1.80 | 1.41 | 8.66 | **12.22** | **6.91** | **13.23** | 1.60 | 3.35 | 2.72 | 2.88 | **2.63** | **4.53** |
+| Mega-ASR | 6.33 | 8.26 | 2.35 | 1.61 | 1.62 | **1.23** | **8.62** | 12.59 | 7.65 | 14.21 | 1.71 | 3.72 | **2.59** | **2.62** | 2.73 | 4.57 |
+| Mega-ASR w/ router | **6.12** | **8.09** | 2.33 | 1.69 | 1.80 | 1.41 | 8.66 | **12.22** | **6.91** | **13.23** | 1.60 | 3.35 | 2.72 | 2.88 | **2.63** | **4.53** |
 
 ## Submission
 

@@ -260,11 +260,17 @@
             <tr><td>Kimi-Audio</td><td class="num">35.10</td><td class="num">14.59</td><td class="num">2.71</td><td class="num">1.92</td><td class="num">2.49</td><td class="num">1.64</td><td class="num">24.00</td><td class="num">26.58</td><td class="num">8.73</td><td class="num">18.09</td><td class="num">1.83</td><td class="num best">2.78</td><td class="num">4.54</td><td class="num">6.33</td><td class="num">4.44</td><td class="num">6.19</td></tr>
             <tr><td>Qwen3-ASR</td><td class="num">7.51</td><td class="num">9.52</td><td class="num">2.23</td><td class="num best">1.54</td><td class="num">1.73</td><td class="num">1.27</td><td class="num">10.40</td><td class="num">14.61</td><td class="num">9.57</td><td class="num">19.42</td><td class="num best">1.54</td><td class="num">3.41</td><td class="num">4.16</td><td class="num">4.19</td><td class="num">3.30</td><td class="num">5.39</td></tr>
             <tr class="group-row"><td colspan="17">Our model</td></tr>
-            <tr><td>Ours</td><td class="num">6.33</td><td class="num">8.26</td><td class="num">2.35</td><td class="num">1.61</td><td class="num">1.62</td><td class="num best">1.23</td><td class="num best">8.62</td><td class="num">12.59</td><td class="num">7.65</td><td class="num">14.21</td><td class="num">1.71</td><td class="num">3.72</td><td class="num best">2.59</td><td class="num best">2.62</td><td class="num">2.73</td><td class="num">4.57</td></tr>
-            <tr><td>Ours w/ router</td><td class="num best">6.12</td><td class="num best">8.09</td><td class="num">2.33</td><td class="num">1.69</td><td class="num">1.80</td><td class="num">1.41</td><td class="num">8.66</td><td class="num best">12.22</td><td class="num best">6.91</td><td class="num best">13.23</td><td class="num">1.60</td><td class="num">3.35</td><td class="num">2.72</td><td class="num">2.88</td><td class="num best">2.63</td><td class="num best">4.53</td></tr>
+            <tr><td>Mega-ASR</td><td class="num">6.33</td><td class="num">8.26</td><td class="num">2.35</td><td class="num">1.61</td><td class="num">1.62</td><td class="num best">1.23</td><td class="num best">8.62</td><td class="num">12.59</td><td class="num">7.65</td><td class="num">14.21</td><td class="num">1.71</td><td class="num">3.72</td><td class="num best">2.59</td><td class="num best">2.62</td><td class="num">2.73</td><td class="num">4.57</td></tr>
+            <tr><td>Mega-ASR w/ router</td><td class="num best">6.12</td><td class="num best">8.09</td><td class="num">2.33</td><td class="num">1.69</td><td class="num">1.80</td><td class="num">1.41</td><td class="num">8.66</td><td class="num best">12.22</td><td class="num best">6.91</td><td class="num best">13.23</td><td class="num">1.60</td><td class="num">3.35</td><td class="num">2.72</td><td class="num">2.88</td><td class="num best">2.63</td><td class="num best">4.53</td></tr>
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section>
+      <h2>Reproduction</h2>
+      <p>Use <code>scripts/run_inference.py</code> to generate predictions and <code>scripts/evaluate_predictions.py</code> to compute Chinese CER and English WER. Mega-ASR is the public name for the merged_v2 model used in the paper.</p>
+      <div class="notice">The full benchmark should be downloaded from the dataset hosting page. The repository includes <code>data/examples.jsonl</code> only as a lightweight format check.</div>
     </section>
 
     <section>

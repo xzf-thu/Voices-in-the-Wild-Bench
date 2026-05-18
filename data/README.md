@@ -12,8 +12,11 @@ This repository keeps only lightweight documentation and release metadata. Audio
 
 ```text
 voices_wild_bench_aug.jsonl
+voices_wild_bench_aug_mixed.jsonl
 audio.tar.gz
 ```
+
+This repository includes `examples.jsonl`, a tiny sample of public-format records for smoke tests and documentation.
 
 ## JSONL Fields
 

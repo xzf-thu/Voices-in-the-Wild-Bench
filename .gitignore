@@ -17,10 +17,11 @@ env/
 *.tar.gz
 *.zip
 *.jsonl
+!data/examples.jsonl
 cache/
 .cache/
 checkpoints/
-models/
+/models/
 
 # Results can be large; keep only documentation by default.
 results/*.jsonl
