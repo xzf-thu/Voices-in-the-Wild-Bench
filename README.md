@@ -106,53 +106,61 @@ Important fields:
 
 The repository includes eight lightweight example clips, one for each public acoustic category. They are useful for smoke-testing loaders, wrappers, and leaderboard formatting before downloading the full benchmark.
 
+GitHub Pages provides the playable audio preview gallery:
+
+<p>
+  <a href="https://xzf-thu.github.io/Voices-in-the-Wild-Bench/#example-audio">
+    <img alt="Preview example audio" src="https://img.shields.io/badge/preview-example%20audio-126a8a?style=for-the-badge">
+  </a>
+</p>
+
 <table>
   <thead>
     <tr>
       <th>Category</th>
-      <th>Preview</th>
+      <th>Audio File</th>
       <th>Reference</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>noise</code></td>
-      <td><audio controls src="data/examples/audio/noise.wav"></audio></td>
+      <td><a href="data/examples/audio/noise.wav">noise.wav</a></td>
       <td>I usually take the quieter road home because the main street gets crowded after work.</td>
     </tr>
     <tr>
       <td><code>far_field</code></td>
-      <td><audio controls src="data/examples/audio/far_field.wav"></audio></td>
+      <td><a href="data/examples/audio/far_field.wav">far_field.wav</a></td>
       <td>Please remind me to print the forms before we leave for the appointment tomorrow.</td>
     </tr>
     <tr>
       <td><code>obstructed</code></td>
-      <td><audio controls src="data/examples/audio/obstructed.wav"></audio></td>
+      <td><a href="data/examples/audio/obstructed.wav">obstructed.wav</a></td>
       <td>I forgot my charger at home, so I need to find an outlet before the meeting starts.</td>
     </tr>
     <tr>
       <td><code>distortion</code></td>
-      <td><audio controls src="data/examples/audio/distortion.wav"></audio></td>
+      <td><a href="data/examples/audio/distortion.wav">distortion.wav</a></td>
       <td>The new coffee machine is simple, but everyone keeps forgetting where the filters are stored.</td>
     </tr>
     <tr>
       <td><code>recording</code></td>
-      <td><audio controls src="data/examples/audio/recording.wav"></audio></td>
+      <td><a href="data/examples/audio/recording.wav">recording.wav</a></td>
       <td>Can you check whether the train still stops at the downtown station after eight tonight?</td>
     </tr>
     <tr>
       <td><code>echo</code></td>
-      <td><audio controls src="data/examples/audio/echo.wav"></audio></td>
+      <td><a href="data/examples/audio/echo.wav">echo.wav</a></td>
       <td>I need to return these shoes because the size feels fine standing up but terrible while walking.</td>
     </tr>
     <tr>
       <td><code>dropout</code></td>
-      <td><audio controls src="data/examples/audio/dropout.wav"></audio></td>
+      <td><a href="data/examples/audio/dropout.wav">dropout.wav</a></td>
       <td>My aunt is learning video calls, and she gets excited whenever the picture actually works.</td>
     </tr>
     <tr>
       <td><code>mixed</code></td>
-      <td><audio controls src="data/examples/audio/mixed.wav"></audio></td>
+      <td><a href="data/examples/audio/mixed.wav">mixed.wav</a></td>
       <td>My sister is bringing dinner over later, so we do not need to cook tonight.</td>
     </tr>
   </tbody>

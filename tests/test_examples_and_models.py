@@ -43,6 +43,14 @@ def test_docs_audio_previews_are_inside_pages_root():
         assert (root / "docs" / "assets" / "audio" / f"{category}.wav").exists()
 
 
+def test_readme_links_to_pages_audio_previews_instead_of_embedding_audio():
+    root = Path(__file__).resolve().parents[1]
+    readme = (root / "README.md").read_text(encoding="utf-8")
+
+    assert "<audio" not in readme
+    assert "https://xzf-thu.github.io/Voices-in-the-Wild-Bench/#example-audio" in readme
+
+
 def test_public_model_registry_includes_reproducible_wrappers():
     assert {
         "whisper-large-v3",
