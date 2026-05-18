@@ -11,7 +11,6 @@ This repository keeps only lightweight documentation and release metadata. Audio
 ## Expected Files
 
 ```text
-voices_wild_bench_aug.jsonl
 voices_wild_bench_aug_mixed.jsonl
 audio.tar.gz
 ```
@@ -27,11 +26,6 @@ This repository includes `examples.jsonl`, a tiny sample of public-format record
 | `question` | Instruction given to the evaluated system |
 | `answer` | Reference transcription or answer |
 | `subset` | Source, language, and category label |
-| `combination` | Acoustic category label |
-| `source_scenes` | Atomic scenes used for this sample |
-| `aug_params_m` | Perturbation parameters when available |
-| `global_severity` | Normalized severity score when available |
-| `speed_factor` | Optional speed perturbation factor |
 | `name` | Stable sample name |
 | `prediction` | Optional model output field |
 
@@ -44,5 +38,6 @@ The public benchmark uses the following category names:
 | `barrier` | `obstructed` |
 | `crosstalk` | `recording` |
 | `stutter` | `dropout` |
+| `strong_echo` | `echo` |
 
 Other category names are unchanged.

@@ -63,7 +63,7 @@ dataset = load_dataset("xzf-thu/Voices-in-the-Wild-Bench", split="test")
 | `obstructed` | 500 | Speech affected by physical or spectral obstruction |
 | `distortion` | 500 | Clipping, nonlinear distortion, and signal degradation |
 | `recording` | 500 | Recording coloration, channel effects, and related artifacts |
-| `strong_echo` | 500 | Echo-heavy and reverberant speech |
+| `echo` | 500 | Echo-heavy and reverberant speech |
 | `dropout` | 500 | Missing, repeated, or discontinuous speech segments |
 | `mixed` | 1,500 | Combinations of multiple acoustic conditions |
 
@@ -80,10 +80,6 @@ Each JSONL record follows the structure below:
   "question": "Please transcribe the audio content into text.",
   "answer": "reference transcription",
   "subset": "sim-zh-noise",
-  "combination": "noise",
-  "source_scenes": ["noise"],
-  "global_severity": 0.93,
-  "speed_factor": null,
   "name": "sample_name",
   "prediction": ""
 }
@@ -95,9 +91,6 @@ Important fields:
 - `question`: instruction given to the evaluated system.
 - `answer`: reference transcription or answer.
 - `subset`: subset label encoding source type, language, and acoustic condition.
-- `combination`: acoustic category label.
-- `source_scenes`: atomic acoustic scenes used to build the sample.
-- `global_severity`: normalized perturbation severity when available.
 - `prediction`: optional field for model outputs.
 
 ## Evaluation

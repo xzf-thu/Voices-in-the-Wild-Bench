@@ -7,7 +7,7 @@ Leaderboard submissions should include aggregate and category-wise scores. Raw p
 Use JSONL with one record per benchmark sample. Preserve the original metadata and fill the `prediction` field:
 
 ```json
-{"index": 0, "audio_path": "audio/example.wav", "answer": "reference transcription", "combination": "noise", "prediction": "model transcription"}
+{"index": 0, "audio_path": "audio/example.wav", "answer": "reference transcription", "subset": "sim-en-noise", "prediction": "model transcription"}
 ```
 
 ## Submission Checklist
