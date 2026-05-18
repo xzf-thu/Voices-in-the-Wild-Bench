@@ -5,10 +5,10 @@
 </p>
 
 <p align="center">
-  <a href="https://prummn.github.io/Voices-in-the-Wild-Bench/">Leaderboard</a> |
+  <a href="https://xzf-thu.github.io/Voices-in-the-Wild-Bench/">Leaderboard</a> |
   <a href="https://arxiv.org/abs/YOUR_PAPER_ID">Paper</a> |
-  <a href="https://huggingface.co/datasets/prummn/Voices-in-the-Wild-Bench">Dataset</a> |
-  <a href="https://github.com/prummn/Voices-in-the-Wild-Bench/issues">Submit Results</a>
+  <a href="https://huggingface.co/datasets/xzf-thu/Voices-in-the-Wild-Bench">Dataset</a> |
+  <a href="https://github.com/xzf-thu/Voices-in-the-Wild-Bench/issues">Submit Results</a>
 </p>
 
 > Voices-in-the-Wild-Bench is a bilingual benchmark for evaluating how robust speech and voice assistant systems are under realistic acoustic conditions, including noise, far-field speech, obstruction, recording artifacts, echo, dropout, and mixed perturbations.
@@ -40,7 +40,7 @@ The dataset will be released on Hugging Face:
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("prummn/Voices-in-the-Wild-Bench", split="test")
+dataset = load_dataset("xzf-thu/Voices-in-the-Wild-Bench", split="test")
 ```
 
 ### Dataset Composition
@@ -114,7 +114,7 @@ Prediction files should preserve the original sample metadata and fill the `pred
 The leaderboard will be hosted with GitHub Pages:
 
 ```text
-https://prummn.github.io/Voices-in-the-Wild-Bench/
+https://xzf-thu.github.io/Voices-in-the-Wild-Bench/
 ```
 
 We will report aggregate performance as well as category-wise performance across the eight acoustic categories.
@@ -132,7 +132,7 @@ We welcome result submissions through the GitHub issue tracker. Please include:
 Submit results here:
 
 ```text
-https://github.com/prummn/Voices-in-the-Wild-Bench/issues
+https://github.com/xzf-thu/Voices-in-the-Wild-Bench/issues
 ```
 
 ## Citation

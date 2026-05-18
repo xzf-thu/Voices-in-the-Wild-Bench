@@ -5,6 +5,6 @@ authors:
   - family-names: "Anonymous"
     given-names: "Authors"
 year: 2026
-repository-code: "https://github.com/prummn/Voices-in-the-Wild-Bench"
-url: "https://prummn.github.io/Voices-in-the-Wild-Bench/"
+repository-code: "https://github.com/xzf-thu/Voices-in-the-Wild-Bench"
+url: "https://xzf-thu.github.io/Voices-in-the-Wild-Bench/"
 license: MIT
