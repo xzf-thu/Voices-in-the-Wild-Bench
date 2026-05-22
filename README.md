@@ -13,9 +13,8 @@
 
 <p align="center">
   <a href="https://xzf-thu.github.io/Voices-in-the-Wild-Bench/">Leaderboard</a> |
-  <a href="https://arxiv.org/abs/YOUR_PAPER_ID">Paper</a> |
-  <a href="https://huggingface.co/datasets/xzf-thu/Voices-in-the-Wild-Bench">Dataset</a> |
-  <a href="#running-models">Model Wrappers</a> |
+  <a href="https://arxiv.org/abs/2605.19833">Paper</a> |
+  <a href="https://huggingface.co/datasets/zhifeixie/Voices-in-the-Wild-Bench">Dataset</a> |
   <a href="https://github.com/xzf-thu/Voices-in-the-Wild-Bench/issues">Submit Results</a>
 </p>
 
@@ -45,13 +44,15 @@ The benchmark focuses on transcription-oriented robust speech understanding. Eac
 
 ## Dataset
 
-The dataset will be released on Hugging Face:
+The dataset is available on Hugging Face:
 
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("xzf-thu/Voices-in-the-Wild-Bench", split="test")
+dataset = load_dataset("zhifeixie/Voices-in-the-Wild-Bench", split="syn_noise")
 ```
+
+The Hugging Face release provides 16 splits organized by source type and acoustic category, such as `real_noise`, `syn_noise`, `real_mixed`, and `syn_mixed`.
 
 ### Dataset Composition
 

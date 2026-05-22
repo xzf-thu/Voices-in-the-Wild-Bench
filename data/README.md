@@ -1,9 +1,9 @@
 # Dataset
 
-The official dataset will be hosted on Hugging Face:
+The official dataset is hosted on Hugging Face:
 
 ```text
-https://huggingface.co/datasets/xzf-thu/Voices-in-the-Wild-Bench
+https://huggingface.co/datasets/zhifeixie/Voices-in-the-Wild-Bench
 ```
 
 This repository keeps only lightweight documentation and release metadata. Audio files and full JSONL annotations should be distributed through the dataset hosting page rather than committed to GitHub.

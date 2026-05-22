@@ -28,6 +28,9 @@ cache/
 checkpoints/
 /models/
 
+tests/
+scripts/build_hf_parquet.py
+
 # Results can be large; keep only documentation by default.
 results/*.jsonl
 results/*.csv
