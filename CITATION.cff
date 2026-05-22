@@ -1,10 +1,25 @@
 cff-version: 1.2.0
 message: "If you use Voices-in-the-Wild-Bench, please cite the associated paper."
-title: "Voices-in-the-Wild-Bench: Benchmarking Robust Speech Understanding in Real-World Voice Interaction"
+title: "Mega-ASR: Towards In-the-wild^2 Speech Recognition via Scaling up Real-world Acoustic Simulation"
 authors:
-  - family-names: "Anonymous"
-    given-names: "Authors"
+  - family-names: "Xie"
+    given-names: "Zhifei"
+  - family-names: "Pang"
+    given-names: "Kaiyu"
+  - family-names: "Zhang"
+    given-names: "Haobin"
+  - family-names: "Ye"
+    given-names: "Deheng"
+  - family-names: "Hu"
+    given-names: "Xiaobin"
+  - family-names: "Yan"
+    given-names: "Shuicheng"
+  - family-names: "Miao"
+    given-names: "Chunyan"
 year: 2026
 repository-code: "https://github.com/xzf-thu/Voices-in-the-Wild-Bench"
-url: "https://xzf-thu.github.io/Voices-in-the-Wild-Bench/"
+url: "https://arxiv.org/abs/2605.19833"
+identifiers:
+  - type: arxiv
+    value: "2605.19833"
 license: MIT

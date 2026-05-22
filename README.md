@@ -262,10 +262,13 @@ https://github.com/xzf-thu/Voices-in-the-Wild-Bench/issues
 If you use Voices-in-the-Wild-Bench in your research, please cite:
 
 ```bibtex
-@article{voicesinthewildbench2026,
-  title={Voices-in-the-Wild-Bench: Benchmarking Robust Speech Understanding in Real-World Voice Interaction},
-  author={Anonymous Authors},
-  journal={arXiv preprint arXiv:YOUR_PAPER_ID},
-  year={2026}
+@misc{xie2026megaasrinthewild2speechrecognition,
+  title={Mega-ASR: Towards In-the-wild^2 Speech Recognition via Scaling up Real-world Acoustic Simulation},
+  author={Zhifei Xie and Kaiyu Pang and Haobin Zhang and Deheng Ye and Xiaobin Hu and Shuicheng Yan and Chunyan Miao},
+  year={2026},
+  eprint={2605.19833},
+  archivePrefix={arXiv},
+  primaryClass={cs.SD},
+  url={https://arxiv.org/abs/2605.19833}
 }
 ```
