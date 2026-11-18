@@ -224,22 +224,26 @@ The full leaderboard is hosted with GitHub Pages:
 https://xzf-thu.github.io/Voices-in-the-Wild-Bench/
 ```
 
-The table below reports breakdown results by acoustic scenario. Scores are error rates; lower is better. `Real.` and `Sim.` denote real-recorded and synthetic speech, respectively.
+The table below reports breakdown results by acoustic scenario. Scores are error rates; lower is better. `Real.` and `Sim.` denote real-recorded and synthetic speech, respectively. Bold indicates the best score across all models. Underline indicates the best score excluding Robam-Shishen-ASR-Large. Both markings apply when a score is best in both comparisons.
 
-| Model | Noise Real. | Noise Sim. | Far. Real. | Far. Sim. | Obst. Real. | Obst. Sim. | Echo. Real. | Echo. Sim. | Record. Real. | Record. Sim. | Elc.Dis. Real. | Elc.Dis. Sim. | Trans.Drop. Real. | Trans.Drop. Sim. | Mixed Real. | Mixed Sim. |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| **Closed-source models** |||||||||||||||||
-| Gemini3-Flash | 7.63 | 10.61 | 5.14 | 1.90 | 3.73 | 2.65 | 8.75 | 14.86 | 8.38 | 19.85 | 3.15 | 7.56 | 5.47 | 7.65 | 7.99 | 9.62 |
-| Seed-ASR | 8.21 | 8.11 | 3.06 | 3.19 | 3.10 | 2.76 | 16.55 | 18.21 | 18.48 | 23.33 | 3.89 | 5.71 | 7.97 | 7.46 | 6.88 | 9.29 |
-| GPT-4o-trans. | 13.19 | 45.78 | **1.87** | 2.39 | **1.57** | 2.77 | 15.62 | 28.76 | 13.37 | 22.60 | 3.70 | 8.43 | 8.76 | 7.71 | 5.62 | 11.00 |
-| **Open-source models** |||||||||||||||||
-| Whisper-L-v3 | 16.57 | 18.19 | 3.38 | 6.85 | 3.06 | 6.01 | 25.34 | 39.87 | 18.33 | 31.81 | 3.74 | 8.77 | 7.04 | 8.05 | 8.91 | 14.79 |
-| Qwen2.5-Omni | 11.92 | 17.88 | 2.35 | 2.44 | 2.40 | 2.08 | 20.01 | 32.64 | 13.71 | 30.09 | 2.46 | 5.96 | 6.34 | 5.88 | 6.40 | 10.29 |
-| Kimi-Audio | 35.10 | 14.59 | 2.71 | 1.92 | 2.49 | 1.64 | 24.00 | 26.58 | 8.73 | 18.09 | 1.83 | **2.78** | 4.54 | 6.33 | 4.44 | 6.19 |
-| Qwen3-ASR | 7.51 | 9.52 | 2.23 | **1.54** | 1.73 | 1.27 | 10.40 | 14.61 | 9.57 | 19.42 | **1.54** | 3.41 | 4.16 | 4.19 | 3.30 | 5.39 |
-| **Our model** |||||||||||||||||
-| Mega-ASR | 6.33 | 8.26 | 2.35 | 1.61 | 1.62 | **1.23** | **8.62** | 12.59 | 7.65 | 14.21 | 1.71 | 3.72 | **2.59** | **2.62** | 2.73 | 4.57 |
-| Mega-ASR w/ router | **6.12** | **8.09** | 2.33 | 1.69 | 1.80 | 1.41 | 8.66 | **12.22** | **6.91** | **13.23** | 1.60 | 3.35 | 2.72 | 2.88 | **2.63** | **4.53** |
+| Model | Parameters | Noise Real. | Noise Sim. | Far. Real. | Far. Sim. | Obst. Real. | Obst. Sim. | Echo. Real. | Echo. Sim. | Record. Real. | Record. Sim. | Elc.Dis. Real. | Elc.Dis. Sim. | Trans.Drop. Real. | Trans.Drop. Sim. | Mixed Real. | Mixed Sim. |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Closed-source models** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Gemini3-Flash | Undisclosed | 7.63 | 10.61 | 5.14 | 1.90 | 3.73 | 2.65 | 8.75 | 14.86 | 8.38 | 19.85 | 3.15 | 7.56 | 5.47 | 7.65 | 7.99 | 9.62 |
+| Seed-ASR | Undisclosed | 8.21 | 8.11 | 3.06 | 3.19 | 3.10 | 2.76 | 16.55 | 18.21 | 18.48 | 23.33 | 3.89 | 5.71 | 7.97 | 7.46 | 6.88 | 9.29 |
+| GPT-4o-trans. | Undisclosed | 13.19 | 45.78 | <ins>**1.87**</ins> | 2.39 | 1.57 | 2.77 | 15.62 | 28.76 | 13.37 | 22.60 | 3.70 | 8.43 | 8.76 | 7.71 | 5.62 | 11.00 |
+| Robam-Shishen-ASR-Large | MoE | **5.80** | **7.44** | 2.15 | **1.34** | **1.26** | 1.39 | **6.00** | **11.91** | 7.99 | **10.89** | **1.20** | **2.51** | **1.78** | **2.13** | **2.35** | **4.22** |
+| Robam-Shishen-ASR-Small | ≈1.5B | 8.34 | 9.63 | 2.21 | 2.54 | <ins>1.49</ins> | 1.81 | <ins>7.94</ins> | 13.32 | 8.41 | 16.52 | <ins>1.35</ins> | 3.65 | <ins>2.32</ins> | 3.17 | 3.05 | 6.17 |
+| **Open-source models** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Whisper-L-v3 | 1.55B | 16.57 | 18.19 | 3.38 | 6.85 | 3.06 | 6.01 | 25.34 | 39.87 | 18.33 | 31.81 | 3.74 | 8.77 | 7.04 | 8.05 | 8.91 | 14.79 |
+| Qwen2.5-Omni | ≈7B | 11.92 | 17.88 | 2.35 | 2.44 | 2.40 | 2.08 | 20.01 | 32.64 | 13.71 | 30.09 | 2.46 | 5.96 | 6.34 | 5.88 | 6.40 | 10.29 |
+| Kimi-Audio | ≈7B | 35.10 | 14.59 | 2.71 | 1.92 | 2.49 | 1.64 | 24.00 | 26.58 | 8.73 | 18.09 | 1.83 | <ins>2.78</ins> | 4.54 | 6.33 | 4.44 | 6.19 |
+| Qwen3-ASR | 1.7B | 7.51 | 9.52 | 2.23 | <ins>1.54</ins> | 1.73 | 1.27 | 10.40 | 14.61 | 9.57 | 19.42 | 1.54 | 3.41 | 4.16 | 4.19 | 3.30 | 5.39 |
+| **Our model** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Mega-ASR | ≈1.7B | 6.33 | 8.26 | 2.35 | 1.61 | 1.62 | <ins>**1.23**</ins> | 8.62 | 12.59 | 7.65 | 14.21 | 1.71 | 3.72 | 2.59 | <ins>2.62</ins> | 2.73 | 4.57 |
+| Mega-ASR w/ router | ≈1.7B + router | <ins>6.12</ins> | <ins>8.09</ins> | 2.33 | 1.69 | 1.80 | 1.41 | 8.66 | <ins>12.22</ins> | <ins>**6.91**</ins> | <ins>13.23</ins> | 1.60 | 3.35 | 2.72 | 2.88 | <ins>2.63</ins> | <ins>4.53</ins> |
+
+Parameter-size sources: [Whisper](https://huggingface.co/openai/whisper-large-v3), [Qwen2.5-Omni](https://huggingface.co/Qwen/Qwen2.5-Omni-7B), [Kimi-Audio](https://huggingface.co/moonshotai/Kimi-Audio-7B), [Qwen3-ASR](https://huggingface.co/Qwen/Qwen3-ASR-1.7B), [Mega-ASR](https://huggingface.co/zhifeixie/Mega-ASR).
 
 ## Submission
 
